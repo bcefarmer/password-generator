@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="./assets/style.css" /> 
+    <script src="./js/script.js"></script>
+  </head>
+
+<!--This will be a popup window called directly after the user's password character-length
+    has been approved.
+  
+  Basically, there are three checkboxes that allow the user to select letters, numbers and/or special
+  characters.  Once they choose, there is a submit style button at the bottom on the floating window.-->
+
+  <body>
+    <div class="wrapper">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="bg-primary">Include Which Characters</h2>
+        </div>
+        <div class="card-body">
+           <div class=.jumboTron id="checkboxChoices">
+              <ul id="typeChoices" style="list-style-type:none;">
+                  <li><label><input type="checkbox" id="lettersType" />Letters</label></li>
+                  <li><label><input type="checkbox" id="numbersType" />Numbers</label></li>
+                  <li><label><input type="checkbox" id="speCharType"/>Special Characters</label></li>
+               </ul>
+              <input class="btn btn-primary" type="submit" value="Submit" id="typeSubmittal">
+           </div>
+        </div>
+      </div>
+  
+   
+  </body>
+</html>

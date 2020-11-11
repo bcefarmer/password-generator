@@ -1,11 +1,12 @@
+var characterTypes = "";
+var rangeArray = "";
 
 
-/* Function generatePassword() is the main function used in password creation.  Most
+/* Function generatePassword() is basically a "starting point" used in password creation.  Most
 phases where user criteria is being evaluated are done by subfunctions. In case these phases
 turn into long procedures, I'd rather not risk them threatening the readibility and clarity
  of generatePassword().
 */
-
 function generatePassword(){
     var amountCharacters = prompt("How many characters would you like in this password?  Password can be between 8-128 characters.");
     console.log("- amountCharacters = " + amountCharacters);
@@ -14,13 +15,13 @@ function generatePassword(){
       amountCharacters = parseInt(amountCharacters); 
       var specifyType = characterLengthEval(amountCharacters); // Send to subfunction to evaluate if #/type of characters falls within correct range.
       }
-   // If, character-length is approved, move forward with user prompts
+   // If character-length is approved, move forward with user prompts
     if(specifyType === true){
     console.log("- amountCharacters value " + amountCharacters + " sent to characterLengthEval()");
     typeSpecifyPopup(); // Function opens a popup with checkboxes to specify character types.
+    // This is the handoff point.
      }
 } 
-
 
 
 /* Function characterLengthEval() checks to see that the user response to "How many characters would you like in this password" is valid." 
@@ -41,18 +42,17 @@ function characterLengthEval(myLength){
 }
 
 
-
-
 // Function typeSpecifyPopup opens a floating window with character type checkboxes.
-
 function typeSpecifyPopup(){
   $("#checkboxModal").modal('show');
 }
-// Function submitTypeCriteria is attached to the submit button on character type popover
+
+
+// Function submitTypeCriteria() is attached to the submit button on character type popover
 function submitTypeCriteria(){ 
-  // First, create empty JSON object in which to hold character criteria specified by user.
+    // First, create empty JSON object in which to hold character criteria specified by user.
   let allTypes = {}
-  // Evaluate the attributes to push to this object based on user checkmarks
+    // Evaluate the attributes to push to this object based on user checkmarks
     // Use letters checked?
   if(document.getElementById("lettersType").checked){
   allTypes["lettersType"] = "true";
@@ -76,9 +76,21 @@ function submitTypeCriteria(){
   }
 
 console.log("-All types object: " + allTypes.lettersType);
+window.characterTypes = allTypes;
+}
+
+// This function establishes each char value in each acceptable range in a giant array
+function establishRanges(){
+if(characterTypes.lettersType==="false" && characterTypes.numbersType==="false" && characterTypes.speCharType==="false"){
+   alert("You have not picked any character criteria for your password.  Please try again.");
+}
+else{
+alert("Something else");
 }
 
 
+
+}
 
 
 // BUTTON EVENT LISTENERS

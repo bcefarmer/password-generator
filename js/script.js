@@ -225,13 +225,15 @@ console.log("function createPWstring result:" + pwString)
 
 
 function charPush(arrSub, realCount){
-  if( arrSub > (rangeArray.length - 1) ){ 
-      arrSub = 0;
+
+
+  var numSub = rangeArray.length;
+
+  if(arrSub === numSub){
+   arrSub = 0;
   }
-  else{
-    arrSub = arrSub++;
-  }
-  console.log("-variable arrSub at function charPush() during realCount " + realCount + ": " + arrSub);
+  
+console.log("-variable arrSub at function charPush() during realCount " + realCount + ": " + arrSub);
 
 var forWriting = "";
 var subArrLength = rangeArray[arrSub].length;
@@ -241,6 +243,7 @@ forWriting =  rangeArray[arrSub][randomGen];
 console.log("- var forWriting = " + forWriting);
 pwString = pwString + forWriting;
 realCount++;
+arrSub++;
 
 
 createPWstring(pwString, arrSub, realCount);

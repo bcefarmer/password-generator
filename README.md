@@ -26,4 +26,5 @@ A rough sketch of the process can be described as follows:
 
 (5) The password is created from these separate "sub-arrays" and written to the textarea object on the html page.
 
+![alt text](screenshots/textarea.png "Program-generated password.") 
 

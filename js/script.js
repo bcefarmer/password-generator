@@ -41,6 +41,7 @@ function generatePassword(){
     lenString = "";
     pwString = "";
     lenPassword = "";
+    document.getElementById("password").textContent = "";
     
     var amountCharacters = prompt("How many characters would you like in this password?  Password can be between 8-128 characters.");
     console.log("- amountCharacters = " + amountCharacters);
@@ -220,6 +221,10 @@ function createPWstring(pwString,iterationCount,realCount){
     charPush(iterationCount, realCount)
    }
 console.log("function createPWstring result:" + pwString)
+var textBoxPath = document.getElementById("password");
+textBoxPath.textContent = pwString;
+console.log(textboxPath);
+
 }
 
 

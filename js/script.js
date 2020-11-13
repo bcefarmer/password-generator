@@ -203,8 +203,8 @@ else{
     }
   }//end else 
 
-  console.log("- Created JSON.  Sending following to createPWstring: " + pwString + ", 0" )
-  createPWstring("",0, 1);
+console.log("- Created JSON.  Sending following to createPWstring: " + pwString + ", 0" )
+createPWstring("",0, 1);
 console.log("******RANGE ARRAY: " + rangeArray);
 } //End establishRanges() function
 
@@ -217,27 +217,33 @@ function createPWstring(pwString,iterationCount,realCount){
   console.log(iterationCount);
   var str_Length = pwString.length;
   if(str_Length != lenPassword){
-    charPush(iterationCount)
+    charPush(iterationCount, realCount)
    }
 console.log("function createPWstring result:" + pwString)
 }
 
 
+
 function charPush(arrSub, realCount){
-  if( arrSub === (rangeArray.length) ){ 
+  if( arrSub > (rangeArray.length - 1) ){ 
       arrSub = 0;
   }
+  else{
+    arrSub = arrSub++;
+  }
+  console.log("-variable arrSub at function charPush() during realCount " + realCount + ": " + arrSub);
+
 var forWriting = "";
 var subArrLength = rangeArray[arrSub].length;
 var randomGen = Math.floor(Math.random() * (subArrLength - 1));
-console.log("- var randomGen = " + randomGen)
+console.log("- var randomGen = " + randomGen);
 forWriting =  rangeArray[arrSub][randomGen];
 console.log("- var forWriting = " + forWriting);
 pwString = pwString + forWriting;
-realCount = realCount++;
-arrSub = arrSub++;
+realCount++;
 
-createPWstring(pwString,arrSub,realCount);
+
+createPWstring(pwString, arrSub, realCount);
 }
 
 

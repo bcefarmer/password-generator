@@ -10,7 +10,7 @@ smaller parts of the process.
 
 A rough sketch of the process can be described as follows:
 
-(1) End-user (EU) is prompted for password length.  EU submits. 
+(1) End-user (EU) is prompted for password length. EU submits. 
 
 ![alt text](screenshots/select-number-char.png "Prompt for password length.") 
 

@@ -305,7 +305,7 @@ function strScrambler(){
    var textBoxPath = document.getElementById("password");
    textBoxPath.textContent = newString;
    console.log("-Original Password BEFORE scramble function: " + pwString );
-   console.blog("-Password AFTER scramble function: " + newString );
+   console.log("-Password AFTER scramble function: " + newString );
 
 }
 

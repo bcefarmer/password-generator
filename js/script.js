@@ -209,9 +209,19 @@ createPWstring("",0, 1);
 console.log("******RANGE ARRAY: " + rangeArray);
 } //End establishRanges() function
 
+/* 
+------------------------------
+FUNCTION NAME: createPWstring
 
+PURPOSE: This is a "decision-maker" function that decides if more characters are needed to complete the pw length.
+          It has an *almost* recursive nature because of the repeated back-and-forth interaction with function charPush.
 
-
+PARAMETERS: pwString (The current "as is" password, whether partial or complete.  Length will be tested to see if specified pw length has been reached. )
+            iterationCount (Represents a specific sub-array within parentArray.  (Eg rangeArray[0] or rangeArray[1])
+            realCount (Number of total iterations.  Helps with troubleshooting and console.log)
+RETURNS: None
+------------------------------
+*/
 
 function createPWstring(pwString,iterationCount,realCount){
   // Size of parent array rangeArray() will determine when look
@@ -220,20 +230,31 @@ function createPWstring(pwString,iterationCount,realCount){
   if(str_Length != lenPassword){
     charPush(iterationCount, realCount)
    }
-console.log("function createPWstring result:" + pwString)
-var textBoxPath = document.getElementById("password");
-textBoxPath.textContent = pwString;
-console.log(textboxPath);
+console.log("function createPWstring result:" + pwString);
+
+strScrambler();
+
+// var textBoxPath = document.getElementById("password");
+// textBoxPath.textContent = pwString;
+// console.log(textboxPath);
 
 }
 
+/* 
+------------------------------
+FUNCTION NAME: charPush
+
+PURPOSE: Actually adds characters incrementally to password.
+
+PARAMETERS: arrSub (which subarray to target within rangeArray.)
+            realCount (total interation count. realCount++ with each run)
+RETURNS: None
+------------------------------
+*/
 
 
 function charPush(arrSub, realCount){
-
-
   var numSub = rangeArray.length;
-
   if(arrSub === numSub){
    arrSub = 0;
   }
@@ -249,10 +270,42 @@ console.log("- var forWriting = " + forWriting);
 pwString = pwString + forWriting;
 realCount++;
 arrSub++;
-
-
 createPWstring(pwString, arrSub, realCount);
 }
+
+/* 
+------------------------------
+FUNCTION NAME: strScrambler
+
+PURPOSE: Because of the possible predictability of a string made
+by repeated "looplike" passovers on an array, one more step is needed to scramble the 
+results.  For example, if the user selected only Uppercase and Special characters for their pw,
+they might get a string with a pattern of Uppercase, Special, Uppercase, Special.
+This step undoes that regularity.
+
+PARAMETERS: arrSub (which subarray to target within rangeArray.)
+            realCount (total interation count. realCount++ with each run)
+RETURNS: None
+------------------------------
+*/
+
+function strScrambler(){
+  var newArray=pwString.split("");
+  var n = newArray.length;
+
+  for(var i = n - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = newArray[i];
+    newArray[i] = newArray[j];
+    newArray[j] = tmp;
+}
+   var newString = newArray.join("");
+
+   var textBoxPath = document.getElementById("password");
+   textBoxPath.textContent = newString;
+
+}
+
 
 
 

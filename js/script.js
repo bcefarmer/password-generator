@@ -277,7 +277,7 @@ createPWstring(pwString, arrSub, realCount);
 ------------------------------
 FUNCTION NAME: strScrambler
 
-PURPOSE: Because of the possible predictability of a string made
+PURPOSE: Because of the possible predictability of a string created
 by repeated "looplike" passovers on an array, one more step is needed to scramble the 
 results.  For example, if the user selected only Uppercase and Special characters for their pw,
 they might get a string with a pattern of Uppercase, Special, Uppercase, Special.
@@ -285,6 +285,7 @@ This step undoes that regularity.
 
 PARAMETERS: arrSub (which subarray to target within rangeArray.)
             realCount (total interation count. realCount++ with each run)
+
 RETURNS: None
 ------------------------------
 */
@@ -303,6 +304,8 @@ function strScrambler(){
 
    var textBoxPath = document.getElementById("password");
    textBoxPath.textContent = newString;
+   console.log("-Original Password BEFORE scramble function: " + pwString );
+   console.blog("-Password AFTER scramble function: " + newString );
 
 }
 

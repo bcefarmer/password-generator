@@ -24,7 +24,13 @@ A rough sketch of the process can be described as follows:
 
 ![alt text](screenshots/array-of-char.png "Subarrays housed in parent array.") 
 
-(5) The password is created from these separate "sub-arrays" and written to the textarea object on the html page.
+(5) The pre-password is created from these separate "sub-arrays".
 
-![alt text](screenshots/textarea.png "Program-generated password.") 
+(6) Because of the possible predictability of a string created
+by repeated "looplike" passovers on an array, one more step is needed to scramble the 
+results.  For example, if the EU selected only Uppercase and Special characters for their pw, their initial pw string would contain a pattern of Uppercase, Special, Uppercase, Special.
+
+This step undoes that regularity.
+
+![alt text](screenshots/scrambler.png "Program-generated password.") 
 

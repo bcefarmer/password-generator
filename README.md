@@ -1,5 +1,5 @@
 #PURPOSE:
-The password-generator app creates a string based on a series of prompts.  The end user control both the length of the string, and the allowable characters.
+The password-generator app creates a string based on a series of prompts.  The end user controls both the length of the string, and the allowable characters.
 
 #LANGUAGES USED:
 HTML (Bootstrap Framework), CSS and Javascript
